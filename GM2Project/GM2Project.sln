@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GM2Project", "GM2Project\GM2Project.vcxproj", "{8FE7F938-A9DB-4779-A93A-14A62D7ABC7A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Game", "Game", "{3F6BC646-08FF-46E9-A671-15BF212DABD2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TextRpg000", "TextRpg000\TextRpg000.vcxproj", "{EBEE876E-EE8C-44E9-8640-3EE78D7AF889}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FE7F938-A9DB-4779-A93A-14A62D7ABC7A}.Debug|x64.ActiveCfg = Debug|x64
+		{8FE7F938-A9DB-4779-A93A-14A62D7ABC7A}.Debug|x64.Build.0 = Debug|x64
+		{8FE7F938-A9DB-4779-A93A-14A62D7ABC7A}.Debug|x86.ActiveCfg = Debug|Win32
+		{8FE7F938-A9DB-4779-A93A-14A62D7ABC7A}.Debug|x86.Build.0 = Debug|Win32
+		{8FE7F938-A9DB-4779-A93A-14A62D7ABC7A}.Release|x64.ActiveCfg = Release|x64
+		{8FE7F938-A9DB-4779-A93A-14A62D7ABC7A}.Release|x64.Build.0 = Release|x64
+		{8FE7F938-A9DB-4779-A93A-14A62D7ABC7A}.Release|x86.ActiveCfg = Release|Win32
+		{8FE7F938-A9DB-4779-A93A-14A62D7ABC7A}.Release|x86.Build.0 = Release|Win32
+		{EBEE876E-EE8C-44E9-8640-3EE78D7AF889}.Debug|x64.ActiveCfg = Debug|x64
+		{EBEE876E-EE8C-44E9-8640-3EE78D7AF889}.Debug|x64.Build.0 = Debug|x64
+		{EBEE876E-EE8C-44E9-8640-3EE78D7AF889}.Debug|x86.ActiveCfg = Debug|Win32
+		{EBEE876E-EE8C-44E9-8640-3EE78D7AF889}.Debug|x86.Build.0 = Debug|Win32
+		{EBEE876E-EE8C-44E9-8640-3EE78D7AF889}.Release|x64.ActiveCfg = Release|x64
+		{EBEE876E-EE8C-44E9-8640-3EE78D7AF889}.Release|x64.Build.0 = Release|x64
+		{EBEE876E-EE8C-44E9-8640-3EE78D7AF889}.Release|x86.ActiveCfg = Release|Win32
+		{EBEE876E-EE8C-44E9-8640-3EE78D7AF889}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EBEE876E-EE8C-44E9-8640-3EE78D7AF889} = {3F6BC646-08FF-46E9-A671-15BF212DABD2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08B3B889-823A-493B-9AB1-8B7FC35BF31E}
+	EndGlobalSection
+EndGlobal
