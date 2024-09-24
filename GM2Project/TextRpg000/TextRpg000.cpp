@@ -113,7 +113,7 @@ void PickPlayer() {
     if (CurPlayerSpeed > CurMonsterSpeed)
         StrCopy(AggressiveName, NAMELEN, PlayerName);
     else
-        StrCopy(AggressiveName, NAMELEN, MonsterName);
+         StrCopy(AggressiveName, NAMELEN, MonsterName);
 }
 
 int main()
@@ -141,27 +141,58 @@ int main()
         Input = _getch();
 
         system("cls");
-        DamageLogic(MonsterHp, PlayerAtt);
+
+        int CurMonsterSpeed = rand() % MonsterSpeed;
+        int CurPlayerSpeed = rand() % PlayerSpeed;
+        if (CurPlayerSpeed > CurMonsterSpeed)
+            DamageLogic(PlayerHp, MonsterAtt);
+        else
+            DamageLogic(MonsterHp, PlayerAtt);
 
         PlayerStatusRender();
         MonsterStatusRender();
 
-        
-        PickPlayer();
+        if (CurPlayerSpeed > CurMonsterSpeed) {
+            SpeedCheckRender(PlayerName);
+            DamageRender(PlayerName, MonsterName, PlayerAtt);
 
-        SpeedCheckRender(AggressiveName);
-        DamageRender(PlayerName, MonsterName, PlayerAtt);
+        }
+        else {
+            SpeedCheckRender(MonsterName);
+
+            DamageRender(MonsterName, PlayerName, MonsterAtt);
+
+        }
+
         Input = _getch();
 
         system("cls");
-        DamageLogic(PlayerHp, MonsterAtt);
+
+        if (CurPlayerSpeed > CurMonsterSpeed)
+            DamageLogic(PlayerHp, MonsterAtt);
+        else
+            DamageLogic(MonsterHp, PlayerAtt);
 
         PlayerStatusRender();
         MonsterStatusRender();
 
-        SpeedCheckRender(AggressiveName);
-        DamageRender(PlayerName, MonsterName, PlayerAtt);
-        DamageRender(MonsterName, PlayerName, MonsterAtt);
+
+        if (CurPlayerSpeed > CurMonsterSpeed) {
+            SpeedCheckRender(PlayerName);
+            DamageRender(PlayerName, MonsterName, PlayerAtt);
+            DamageRender(MonsterName, PlayerName, MonsterAtt);
+
+
+        }
+        else {
+            SpeedCheckRender(MonsterName);
+
+            DamageRender(MonsterName, PlayerName, MonsterAtt);
+            DamageRender(PlayerName, MonsterName, PlayerAtt);
+
+
+        }
+
 
         Input = _getch();
     }
