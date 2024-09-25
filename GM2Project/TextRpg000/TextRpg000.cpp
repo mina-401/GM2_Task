@@ -95,7 +95,7 @@ void DamageRender(const char* const _AttName, const char* const _DefName, int _A
     printf_s("%s 가 %s를 공격해서 %d의 데미지를 입혔습니다.\n", _AttName, _DefName, _Att);
 }
 
-void DamageLogic(int& _DefHp, int _Att)
+void ApplyDamage(int& _DefHp, int _Att)
 {
     _DefHp -= _Att;
 }
@@ -104,18 +104,6 @@ void SpeedCheckRender(const char* const _Name)
 {
     printf_s("%s 의 선공입니다\n", _Name);
 }
-
-void PickPlayer() {
-
-    
-    int CurMonsterSpeed = rand() % MonsterSpeed;
-    int CurPlayerSpeed = rand() % PlayerSpeed;
-    if (CurPlayerSpeed > CurMonsterSpeed)
-        StrCopy(AggressiveName, NAMELEN, PlayerName);
-    else
-         StrCopy(AggressiveName, NAMELEN, MonsterName);
-}
-
 int main()
 {
     srand(time(0));
@@ -145,9 +133,9 @@ int main()
         int CurMonsterSpeed = rand() % MonsterSpeed;
         int CurPlayerSpeed = rand() % PlayerSpeed;
         if (CurPlayerSpeed > CurMonsterSpeed)
-            DamageLogic(PlayerHp, MonsterAtt);
+            ApplyDamage(PlayerHp, MonsterAtt);
         else
-            DamageLogic(MonsterHp, PlayerAtt);
+            ApplyDamage(MonsterHp, PlayerAtt);
 
         PlayerStatusRender();
         MonsterStatusRender();
@@ -155,13 +143,10 @@ int main()
         if (CurPlayerSpeed > CurMonsterSpeed) {
             SpeedCheckRender(PlayerName);
             DamageRender(PlayerName, MonsterName, PlayerAtt);
-
         }
         else {
             SpeedCheckRender(MonsterName);
-
             DamageRender(MonsterName, PlayerName, MonsterAtt);
-
         }
 
         Input = _getch();
@@ -169,9 +154,9 @@ int main()
         system("cls");
 
         if (CurPlayerSpeed > CurMonsterSpeed)
-            DamageLogic(PlayerHp, MonsterAtt);
+            ApplyDamage(PlayerHp, MonsterAtt);
         else
-            DamageLogic(MonsterHp, PlayerAtt);
+            ApplyDamage(MonsterHp, PlayerAtt);
 
         PlayerStatusRender();
         MonsterStatusRender();
@@ -181,19 +166,12 @@ int main()
             SpeedCheckRender(PlayerName);
             DamageRender(PlayerName, MonsterName, PlayerAtt);
             DamageRender(MonsterName, PlayerName, MonsterAtt);
-
-
         }
         else {
             SpeedCheckRender(MonsterName);
-
             DamageRender(MonsterName, PlayerName, MonsterAtt);
             DamageRender(PlayerName, MonsterName, PlayerAtt);
-
-
         }
-
-
         Input = _getch();
     }
 
