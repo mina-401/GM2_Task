@@ -2,7 +2,10 @@
 //
 
 #include <iostream>
+#include <assert.h>
+#include <windows.h>
 
+//using System.Diagnostics;
 //class PlayerSaveData
 //{
 //public:
@@ -63,9 +66,14 @@ public:
     {
         //10 ~ 20
         
-                    // 10   + (0~19)
-        int result = MinAtt + rand() % (MaxAtt+1);
+                    // 10   + (0~20)
+        int result = MinAtt + rand() % (MaxAtt-MinAtt+1);
+        //printf_s("Get Damage 함수 실행");
 
+        //assert(false);
+        //LOG("로그 메시지입니다.");
+        MessageBoxA(nullptr, "이름의 길이가 너무 깁니다 내용", "치명적인 에러 메세지 제목", MB_OK);
+        assert(false);
         int a = 0;
         return result;
         // return MinAtt + rand
@@ -117,7 +125,7 @@ class Monster : public FightUnit
 int main()
 {
 
-    srand(time(0));
+    srand(static_cast<unsigned int>(time(0)));
 
     Player NewPlayer;
     Monster NewMonster;

@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="TextRPGinheritance.cpp">
+    <ClCompile Include="004ClassSize.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
