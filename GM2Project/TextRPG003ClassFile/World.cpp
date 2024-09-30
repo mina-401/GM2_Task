@@ -36,7 +36,7 @@ void UWorld::InPlayer(class UPlayer& _Player)
 				break;
 			default:
 				printf_s("잘못된 선택입니다. 다시 선택해주세요\n");
-				_getch();
+				int ch=_getch();
 
 				break;
 			}if (true == IsEnd)
