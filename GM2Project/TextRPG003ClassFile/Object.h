@@ -1,7 +1,8 @@
 #pragma once
+#include <BaseSystem/EngineDebug.h>
 #include "EngineConst.h"
-#include "EngineDebug.h"
 #include <iostream>
+
 
 class UObject
 {

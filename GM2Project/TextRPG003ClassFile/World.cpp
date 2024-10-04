@@ -1,10 +1,10 @@
 #include "World.h"
 #include "FightZone.h"
 #include "Town.h"
+#include "Player.h"
 #include <conio.h>
 
-
-void UWorld::InPlayer(class UPlayer& _Player)
+void UWorld::PlayerNameSelect(UPlayer& _Player)
 {
 	char InputName[100] = { 0, };
 
@@ -36,7 +36,8 @@ void UWorld::InPlayer(class UPlayer& _Player)
 				break;
 			default:
 				printf_s("잘못된 선택입니다. 다시 선택해주세요\n");
-				int ch=_getch();
+				int ch = _getch();
+				system("cls");
 
 				break;
 			}if (true == IsEnd)
@@ -44,32 +45,73 @@ void UWorld::InPlayer(class UPlayer& _Player)
 				break;
 			}
 		}
-		
-		
+
+
 		if (true == IsFinalEnd)
 		{
 			break;
 		}
 	}
+	_Player.SetName(InputName);
+}
 
-	// 마지막맵까지 여기서 이 방식으로 가면
-	// 마을에 있을때 FightZone은 없어도 된다.
-	// 지금 배운 지역변수 
-
-	// new를 왜 배워야 하는거냐?
-	// 8기가
+void UWorld::PlayerZonePlay(UPlayer& _Player)
+{
 	UTown TownZone;
 	TownZone.SetName("초보마을");
 
+	UTown TownZone1;
+	TownZone1.SetName("중급마을"); //3
+
 	// 10기가
 	UFightZone FightZone;
-	FightZone.SetName("초보사냥터");
+	FightZone.SetName("초보사냥터"); //2
 
-	while (true)
+
+	int nextZone = TownZone.InPlayer(_Player);
+	while (nextZone)
 	{
-		TownZone.InPlayer(_Player);
-	}
+		// 
+		switch (nextZone)
+		{
+		case 1:
+			break;
+		case 2:
+			nextZone = FightZone.InPlayer(_Player);
+			break;
+		case 3:
+			nextZone = TownZone1.InPlayer(_Player);
+			break;
+		default:
+			break;
+		}
+		
+		
+		
 
+		//if(nextZone)
+	}
+}
+
+void UWorld::InPlayer(class UPlayer& _Player)
+{
+	
+	//파일이 없으면 네임 셀렉
+
+	/*if (true) {
+		PlayerNameSelect(_Player);
+	}
+	else {
+
+	}*/
+
+	//없으면 그이름으로 시작
+
+	_Player.SetName("TestPlayer");
+	
+	
+	PlayerZonePlay(_Player);
 
 
 }
+

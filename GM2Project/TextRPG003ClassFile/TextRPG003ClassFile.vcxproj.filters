@@ -25,9 +25,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TextRPG003ClassFile.cpp" />
-    <ClCompile Include="EngineDebug.cpp">
-      <Filter>0_Base</Filter>
-    </ClCompile>
     <ClCompile Include="Item.cpp">
       <Filter>2_Contents\1_Actor\Component</Filter>
     </ClCompile>
@@ -63,9 +60,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EngineDebug.h">
-      <Filter>0_Base</Filter>
-    </ClInclude>
     <ClInclude Include="Item.h">
       <Filter>2_Contents\1_Actor\Component</Filter>
     </ClInclude>
