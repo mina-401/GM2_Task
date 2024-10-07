@@ -54,44 +54,55 @@ void UWorld::PlayerNameSelect(UPlayer& _Player)
 	}
 	_Player.SetName(InputName);
 }
+void UWorld::ZoneInit()
+{
+	TownZone0.SetName("초보마을"); 
+	TownZone1.SetName("중급마을"); 
+	FightZone.SetName("초보사냥터");
+
+	//UZone upcasting
+	TownZone0.InterConnecting(&FightZone); //Townzone의 0번 == FightZone의 0번
+	//TownZone0.InterConnecting(&FightZone);
+
+	int a = 0;
+	//TownZone0.InterConnecting(&FightZone);
+}
 
 void UWorld::PlayerZonePlay(UPlayer& _Player)
 {
-	UTown TownZone;
-	TownZone.SetName("초보마을");
 
-	UTown TownZone1;
-	TownZone1.SetName("중급마을"); //3
-
-	// 10기가
-	UFightZone FightZone;
-	FightZone.SetName("초보사냥터"); //2
+	ZoneInit();
 
 
-	int nextZone = TownZone.InPlayer(_Player);
-	while (nextZone)
+
+	//player location
+	_Player.SetCurrLocation(1);
+	int currLocation = 1;
+	while (currLocation)
 	{
 		// 
-		switch (nextZone)
+		currLocation = _Player.GetCurrLocation();
+		switch (currLocation)
 		{
 		case 1:
+			TownZone0.InPlayer(_Player);
 			break;
 		case 2:
-			nextZone = FightZone.InPlayer(_Player);
+			//사냥터 입장한다
+			FightZone.InPlayer(_Player);
 			break;
 		case 3:
-			nextZone = TownZone1.InPlayer(_Player);
+			//중급마을 이동한다.
+			TownZone1.InPlayer(_Player);
 			break;
 		default:
 			break;
 		}
-		
-		
-		
 
 		//if(nextZone)
 	}
 }
+
 
 void UWorld::InPlayer(class UPlayer& _Player)
 {

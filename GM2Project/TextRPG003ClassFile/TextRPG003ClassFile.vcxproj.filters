@@ -49,7 +49,7 @@
     <ClCompile Include="Object.cpp">
       <Filter>1_Engine</Filter>
     </ClCompile>
-    <ClCompile Include="EngineConst.cpp">
+    <ClCompile Include="ContentsConst.cpp">
       <Filter>0_Base</Filter>
     </ClCompile>
     <ClCompile Include="Town.cpp">
@@ -84,7 +84,7 @@
     <ClInclude Include="Object.h">
       <Filter>1_Engine</Filter>
     </ClInclude>
-    <ClInclude Include="EngineConst.h">
+    <ClInclude Include="ContentsConst.h">
       <Filter>0_Base</Filter>
     </ClInclude>
     <ClInclude Include="Town.h">

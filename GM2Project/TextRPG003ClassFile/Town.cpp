@@ -3,7 +3,7 @@
 #include "Player.h"
 
 // 포인터나 레퍼런스는 무조건 8바이트 이기 때문에
-int UTown::InPlayer(class UPlayer& _Player)
+void UTown::InPlayer(class UPlayer& _Player)
 {
 	InMsgPrint();
 
@@ -20,23 +20,20 @@ int UTown::InPlayer(class UPlayer& _Player)
 
 		switch (Select)
 		{
-		case '0':
-			printf_s("0눌렀습니다.");
-			_getch();
-			break;
-		case '1':
-			printf_s("1눌렀습니다.");
-			_getch();
-			break;
 		case '2':
-			printf_s("2눌렀습니다.");
+			_Player.SetCurrLocation(2);
+			printf_s("2눌렀습니다.\n");
 			_getch();
-			return 2;
+			return;
 		case '3':
-			printf_s("3눌렀습니다.");
+			_Player.SetCurrLocation(3);
+			printf_s("3눌렀습니다.\n");
 			_getch();
-			return 3;
-
+			return;
+		case '0':
+		case '1':
+		
+			break;
 		default:
 			break;
 		}

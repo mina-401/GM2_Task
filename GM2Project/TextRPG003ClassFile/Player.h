@@ -11,6 +11,10 @@ class UPlayer : public UFightUnit
 public:
 	UPlayer();
 	void Equip(class Item* Weapon);
+	void SetCurrLocation(int _currentLocationIndex);
+	int GetCurrLocation();
+private:
+	int currentLocationIndex = 0;
 public:
 
 	//포인터는 무조건 8 바이트 이기 때문에 헤더를 몰라도 된다.
