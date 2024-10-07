@@ -1,8 +1,8 @@
 #pragma once
-#include <BaseSystem/EngineDebug.h>
+// 상하관계 잘생각하면서
 #include "ContentsConst.h"
+#include <BaseSystem/EngineDebug.h>
 #include <iostream>
-
 
 class UObject
 {
