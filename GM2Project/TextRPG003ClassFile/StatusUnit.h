@@ -5,7 +5,9 @@
 class UStatusUnit : public UObject
 {
 public:
-	virtual void StatusRender();
+	void StatusRender();
+	void TopLine();
+	void BotLine();
 
 	void SetHp(int _Value)
 	{
@@ -49,13 +51,24 @@ public:
 		return Gold; 
 	}
 
-
+	int GetEnforce()
+	{
+		return Enforce;
+	}
+	void SetEnforce(int _enforce)
+	{
+		Enforce = Enforce + _enforce;
+	}
 protected:
 	int Hp = 100;
 	int MinAtt = 10;
 	int MaxAtt = 20;
 	int Speed = 10;
 	int Gold = 0;
+	int Enforce = 0;
+
+	virtual void StatusTextPrint() {};
+
 
 private:
 };

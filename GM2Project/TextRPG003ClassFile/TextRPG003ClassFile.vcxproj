@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BlackSmith.cpp" />
     <ClCompile Include="ContentsConst.cpp" />
     <ClCompile Include="FightUnit.cpp" />
     <ClCompile Include="FightZone.cpp" />
@@ -142,6 +143,7 @@
     <ClCompile Include="Zone.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BlackSmith.h" />
     <ClInclude Include="ContentsConst.h" />
     <ClInclude Include="FightUnit.h" />
     <ClInclude Include="FightZone.h" />
@@ -153,6 +155,11 @@
     <ClInclude Include="Object.h" />
     <ClInclude Include="World.h" />
     <ClInclude Include="Zone.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseSystem\BaseSystem.vcxproj">
+      <Project>{3f8332a3-ac1e-4120-b200-f0c29f66d0c7}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

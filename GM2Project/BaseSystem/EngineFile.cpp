@@ -97,3 +97,4 @@ void UEngineFile::Close()
 		File = nullptr;
 	}
 }
+

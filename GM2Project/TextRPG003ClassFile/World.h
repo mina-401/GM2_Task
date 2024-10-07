@@ -11,6 +11,7 @@ private:
 	void ZoneInit();
 	void PlayerNameSelect(class UPlayer& _Player);
 	void PlayerZonePlay(class UPlayer& _Player);
+	void PlayerInit(class UPlayer& _Player);
 
 	UTown TownZone0;
 	UTown TownZone1;

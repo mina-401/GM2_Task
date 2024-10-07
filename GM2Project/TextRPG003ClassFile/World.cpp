@@ -4,18 +4,7 @@
 #include "Player.h"
 #include <BaseSystem/EngineDebug.h>
 #include <BaseSystem/EngineFile.h>
-
-// #include "EngineFile.h"
-
-// #include "..\BaseSystem\EngineFile.h"
-// 정석적인 방법은 아닙니다.
-
-// #include < <= 시작하는 외부경로는 크게 2가지 기능의 영향을 받는다.
-
-
 #include <conio.h>
-
-
 
 void UWorld::PlayerNameSelect(class UPlayer& _Player)
 {
@@ -81,62 +70,30 @@ void UWorld::ZoneInit()
 	TownZone1.SetName("중급마을");
 	FightZone.SetName("초보사냥터");
 
-	TownZone0.Connecting(&TownZone0);
+	//TownZone0.Connecting(&TownZone0);
 
 	TownZone0.InterConnecting(&FightZone);
 
-	// TownZone0.Connecting(&FightZone);
-	// FightZone.Connecting(&TownZone0);
-
-	// 업캐스팅
-	// 같은곳을 2번 
-	// 무조건 디버깅이 최우선
-	// 테스트 코드를 짜야 합니다.
-	// 2번 연결 예외처리 테스트
-	// 귀찮아 
-	//TownZone0.Link(&FightZone);
-	//TownZone0.Link(&FightZone);
-
-	// 테스팅2
-	//UTown Arr[100];
-	//for (size_t i = 0; i < 100; i++)
-	//{
-	//	TownZone0.Link(&Arr[i]);
-	//}
 }
 
 
 void UWorld::PlayerZonePlay(class UPlayer& _Player)
 {
-	ZoneInit();
-	_Player.SetCurZone(0);
-	_Player.SetGold(10000000);
+	//맵 준비, 플레이어도 다 된
+//	_Player.SetCurZone(0);
+//	_Player.SetGold(10000000);
 
+	UZone* CurZone = &TownZone0;
 	while (true)
 	{
-		int SelectZone = _Player.GetCurZone();
-
-		switch (SelectZone)
-		{
-		case 0:
-			TownZone0.InPlayer(_Player);
-			break;
-		case 1:
-			TownZone1.InPlayer(_Player);
-			break;
-		case 2:
-			FightZone.InPlayer(_Player);
-			break;
-		default:
-			break;
-		}
+		CurZone = CurZone->InPlayer(_Player);
 	}
 
 }
 
-void UWorld::InPlayer(class UPlayer& _Player)
+//
+void UWorld::PlayerInit(UPlayer& _Player)
 {
-	// 외부기로 헤더만 있고 CPP는 없다. 
 	UEngineFile File;
 	File.SetPath("SaveFile.Dat");
 
@@ -145,16 +102,11 @@ void UWorld::InPlayer(class UPlayer& _Player)
 	{
 		File.FileOpen("wb");
 
-		// 이름 정하고 나왔다.
 		PlayerNameSelect(_Player);
 		const char* Name = _Player.GetName();
-
-		// 문자열을 저장할때는 문제가 있다.
-		// 초반에는 안좋을수 있다.
-		// 저장할때 가장 쉬운 방법은 크기가 고정되어 있는 것이다.
 		File.Write(Name, NAMELEN);
 	}
-	else 
+	else
 	{
 		File.FileOpen("rb");
 
@@ -162,6 +114,18 @@ void UWorld::InPlayer(class UPlayer& _Player)
 		File.Read(Arr, NAMELEN);
 		_Player.SetName(Arr);
 	}
+}
 
+void UWorld::InPlayer(class UPlayer& _Player)
+{
+	
+	PlayerInit(_Player);
+
+	//맵 준비
+	ZoneInit();
 	PlayerZonePlay(_Player);
+
+
+	//return nullptr;
+	//return this;
 }

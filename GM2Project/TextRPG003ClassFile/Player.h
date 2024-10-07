@@ -48,13 +48,15 @@ class UPlayer : public UFightUnit
 public:
 	UPlayer();
 
-	void StatusRender() override;
+	void StatusTextPrint() override;
 
 	// 나쁜게 아닌데 절제 없이 하다보면 순환참조 및 문제가 생긴다.
 	// 헤더에다가 구현하다보면 
 	// 그 헤더가 include cpp를 컴파일데 시간 오래걸리게 된다.
 	// 각 종 cpp에서 include를 하기 시작한다.
 	void Equip(class Item* Weapon);
+	void SaveFileLoad();
+
 	// 헤더에서 함수를 구현하지 않습니다.
 	// 함수의 구현을 보통 헤더하지 않습니다.
 	//{
@@ -72,6 +74,15 @@ public:
 		return CurZoneIndex;
 	}
 
+	inline int GetEquipAtt() const
+	{
+		return EquipAtt;
+	}
+
+	inline void SetEquipAtt(int _Value)
+	{
+		EquipAtt = _Value;
+	}
 protected:
 
 private:
@@ -79,5 +90,6 @@ private:
 	class Item* Weapon = nullptr;
 	int CurZoneIndex = 0;
 	int EquipAtt = 0;
+	
 };
 
