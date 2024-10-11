@@ -4,6 +4,7 @@
 class UMonster : public UFightUnit
 {
 public:
+
 	void StatusRender();
 };
 

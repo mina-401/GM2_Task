@@ -14,4 +14,13 @@ public:
 		ZONELINKMAX = 5,
 		LINECOUNT = 50
 	};
+
+	enum class MONSTERTYPE
+	{
+		// 실수여지를 확인하기 위해서
+		NONE = 0,
+		GOBLIN,
+		ORC
+	};
+
 };

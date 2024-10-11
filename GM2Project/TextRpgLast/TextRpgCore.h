@@ -8,7 +8,7 @@ public:
 
 	static void Start();
 
-	static class UPlayer& GetPlayer();
+	static class APlayer& GetPlayer();
 
 public:
 };

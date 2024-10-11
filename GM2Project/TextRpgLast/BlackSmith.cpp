@@ -7,7 +7,7 @@
 
 void BlackSmith::TryUpgrade()
 {
-	UPlayer& _Player = TextRpgCore::GetPlayer();
+	APlayer& _Player = TextRpgCore::GetPlayer();
 	system("cls");
 	// 확률은 전부다 2분의 1
 	// 1돈이 깎여야 한다. 플레이어의 강화 단계 * 100
@@ -39,7 +39,7 @@ void BlackSmith::TryUpgrade()
 		return;
 	}
 
-	_Player.SetGold(CurGold - UpgradeCost);
+	//_Player.SetGold(CurGold - UpgradeCost);
 	// 강화로직
 
 	// int Result = 1; 
@@ -92,7 +92,7 @@ UZone* BlackSmith::InPlayer()
 		return nullptr;
 	}
 
-	UPlayer& _Player = TextRpgCore::GetPlayer();
+	APlayer& _Player = TextRpgCore::GetPlayer();
 
 	_Player.SetGold(1000000);
 

@@ -4,7 +4,7 @@
 #include <conio.h>
 
 
-UZone* UFightZone::InPlayer(class UPlayer& _Player)
+UZone* UFightZone::InPlayer()
 {
 	InMsgPrint();
 	_getch();
@@ -13,9 +13,6 @@ UZone* UFightZone::InPlayer(class UPlayer& _Player)
 
 	while (true)
 	{
-		system("cls");
-		_Player.StatusRender();
-		NewMonster.StatusRender();
-		_getch();
+		
 	}
 }

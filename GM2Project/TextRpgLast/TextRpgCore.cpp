@@ -1,12 +1,13 @@
 #include "TextRpgCore.h"
 #include "Player.h"
 #include "World.h"
+#include <iostream>
 
 // 플레이어는 딱 1명이다.
-UPlayer MainPlayer;
+APlayer MainPlayer;
 UWorld World;
 
-UPlayer& TextRpgCore::GetPlayer()
+APlayer& TextRpgCore::GetPlayer()
 {
 	return MainPlayer;
 }
@@ -18,7 +19,9 @@ TextRpgCore::TextRpgCore()
 
 void TextRpgCore::Start()
 {
+	srand(static_cast<unsigned int>(time(nullptr)));
 	MainPlayer.SetName("MainPlayer");
+	MainPlayer.BeginPlay();
 	World.ZoneInit();
 	World.PlayerZonePlay();
 }

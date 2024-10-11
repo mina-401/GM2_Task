@@ -24,9 +24,16 @@ public:
 
 	// 보통 이녀석 자체는 아무것도 하지 않습니다.
 	// 부모는 인터페이스만 제공한다고 합니다.
-	virtual UZone* InPlayer(class UPlayer& _Player)
+	virtual UZone* InPlayer()
 	{
 		return nullptr;
+	}
+	int GetSelectMax() {
+		return SelectMax;
+	}
+	bool IsConnectEmpty()
+	{
+		return false;
 	}
 
 protected:
@@ -38,4 +45,5 @@ private:
 	// 전부다 여기에 넣을수가 있다.
 	UZone* LinkZone[LINKZONEMAX] = { nullptr, };
 	int SelectMax = 0;
+	
 };
