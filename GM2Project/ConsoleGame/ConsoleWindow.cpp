@@ -6,37 +6,34 @@ UConsoleWindow::UConsoleWindow()
 
 }
 
+void UConsoleWindow::SetScreenSize(int _X, int _Y)
+{
+	BackBuffer.Create(_X, _Y, '*');
+}
+
 void UConsoleWindow::BeginPlay()
 {
-	for (size_t y = 0; y < 10; y++)
-	{
-		for (size_t x = 0; x < 20; x++)
-		{
-			Arr[y][x] = '*';
-		}
-
-		Arr[y][20] = 0;
-	}
+	Clear();
 }
 
-void UConsoleWindow::SetPixel(int _X, int _Y, char _Text)
+void UConsoleWindow::Clear()
 {
-	Arr[_Y][_X] = _Text;
+	// 프레임을 어거지로 늦출 겁니다.
+	system("cls");
+	BackBuffer.Clear('*');
 }
 
-void UConsoleWindow::UConsoleWindow::Clear()
+void UConsoleWindow::SetPixel(int _X, int _Y, char _Text /*= '*'*/)
 {
-
+	//Arr[_Y][_X] = _Text;
 }
 
 void UConsoleWindow::ScreenRender()
 {
-	for (size_t y = 0; y < 10; y++)
+	for (size_t y = 0; y < BackBuffer.GetImageSizeY(); y++)
 	{
-		char* Ptr = &Arr[y][0];
+		char* Ptr = BackBuffer.GetLine(y);
 		printf_s(Ptr);
 		printf_s("\n");
 	}
-
-
 }

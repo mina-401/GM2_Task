@@ -29,10 +29,10 @@ int main()
 
     if (nullptr != AllImagePixel)
     {
-        delete AllImagePixel[0];
-        delete AllImagePixel[1];
-        delete AllImagePixel[2];
-        delete AllImagePixel[3];
+        delete[] AllImagePixel[0];
+        delete[] AllImagePixel[1];
+        delete[] AllImagePixel[2];
+        delete[] AllImagePixel[3];
         delete[] AllImagePixel;
 
         AllImagePixel = nullptr;
