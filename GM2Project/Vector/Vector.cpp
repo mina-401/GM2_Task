@@ -153,10 +153,11 @@ int main()
 
         stdvector.clear();
 
-            stdvector.free();
+        stdvector.free();
         
     
         std::cout << "clear after capacity : " << stdvector.capacity() << std::endl;
+        std::cout << "size     : " << stdvector.size() << std::endl;
 
     }
 
