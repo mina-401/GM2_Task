@@ -6,14 +6,22 @@
 // 5시까지
 // 5~6시에 기존에 
 
-typedef int DataType;
+//typedef int DataType;
 
 // 중단점이나 디버깅할때 그냥 자료형이 
 // 정해져 있는것이 보기가 더 편해서 이방법을 많이 사용했다.
-// template<typename DataType>
+ template<typename DataType>
 class UVector
 {
 public:
+	~UVector()
+	{
+		if (nullptr != Datas)
+		{
+			delete[] Datas;
+			Datas = nullptr;
+		}
+	}
 	void reserve(size_t _capacity)
 	{
 		if (CapacityValue > _capacity)
@@ -40,7 +48,7 @@ public:
 		CapacityValue = _capacity;
 	}
 
-	void free()
+	/*void free()
 	{
 		DataType* CurData = Datas;
 
@@ -51,7 +59,7 @@ public:
 			CurData = nullptr;
 		}
 
-	}
+	}*/
 
 	size_t capacity() const
 	{

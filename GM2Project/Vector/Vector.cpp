@@ -139,7 +139,7 @@ int main()
 
 
     {
-        UVector stdvector;
+        UVector<int> stdvector;
         // stdvector[20] = 20;
         stdvector.reserve(10);
 
@@ -152,8 +152,6 @@ int main()
         }
 
         stdvector.clear();
-
-        stdvector.free();
         
     
         std::cout << "clear after capacity : " << stdvector.capacity() << std::endl;
