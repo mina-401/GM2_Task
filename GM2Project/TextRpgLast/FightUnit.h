@@ -13,7 +13,7 @@ public:
 
 	virtual int GetDamage() const;
 
-	inline int GetDamageValue() const
+	inline int GetDamageValue() const 
 	{
 		return PrevDamage;
 	}

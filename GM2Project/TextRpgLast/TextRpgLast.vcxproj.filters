@@ -125,4 +125,7 @@
       <UniqueIdentifier>{34983623-d962-4e06-8256-5cb1089bbf5d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="핵심구조.txt" />
+  </ItemGroup>
 </Project>

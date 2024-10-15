@@ -39,7 +39,7 @@ void BlackSmith::TryUpgrade()
 		return;
 	}
 
-	//_Player.SetGold(CurGold - UpgradeCost);
+	_Player.SetGold(CurGold - UpgradeCost);
 	// 강화로직
 
 	// int Result = 1; 
@@ -94,7 +94,7 @@ UZone* BlackSmith::InPlayer()
 
 	APlayer& _Player = TextRpgCore::GetPlayer();
 
-	_Player.SetGold(1000000);
+	// _Player.SetGold(1000000);
 
 	srand(static_cast<unsigned int>(time(nullptr)));
 

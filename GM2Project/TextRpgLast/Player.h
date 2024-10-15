@@ -10,7 +10,7 @@ class APlayer : public AActor
 
 public:
 	APlayer();
-	void BeginPlay() override;
+
 	inline int GetEquipAtt() const
 	{
 		return EquipAtt;
@@ -20,8 +20,10 @@ public:
 	{
 		EquipAtt = _Value;
 	}
-	int GetDamage() const override;
+
 	void StatusTextRender() override;
+
+	int GetDamage() const override;
 
 private:
 	int EquipAtt = 0;

@@ -1,23 +1,17 @@
 #include "Player.h"
 #include <iostream>
 
-APlayer::APlayer()
-{
-	UObject* ObjectPtr = this; //업캐스팅
-	UStatusUnit* StatusUnitPtr = this;
-	UFightUnit* FightUnitPtr = this;
-}
-
-void APlayer::BeginPlay()
-{
-	AActor::BeginPlay();
-}
-
 int APlayer::GetDamage() const
 {
 	return UFightUnit::GetDamage() + EquipAtt;
 }
 
+APlayer::APlayer()
+{
+	UObject* ObjectPtr = this;
+	UStatusUnit* StatusUnitPtr = this;
+	UFightUnit* FightUnitPtr = this;
+}
 
 void APlayer::StatusTextRender()
 {

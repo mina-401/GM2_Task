@@ -1,5 +1,7 @@
 #pragma once
 #include "ConsoleImage.h"
+#include "Actor.h"
+#include "ActorVector.h"
 
 //class AActor
 //{
@@ -13,36 +15,14 @@
 
 // 화면어딘가에 이녀석이 랜더링
 // 일반적인 게임엔진
-class Player
+class Player : public AActor
 {
 public:
-	void BeginPlay();
-	void Tick(ConsoleImage* _BackBuffer);
-	void Render(ConsoleImage* _BackBuffer);
-
-	void SetActorLocation(FIntPoint _Pos);
-
-	void CheckPos(FIntPoint& _Pos);
-	void CheckPos2(FIntPoint& _Pos);
-	void SetBackBuffer(ConsoleImage* _BackBuffer)
-	{
-		BackBuffer = _BackBuffer;
-	}
-
-	void SetPos(FIntPoint& _Pos)
-	{
-		Pos = _Pos;
-	}
-
-	FIntPoint GetPos()
-	{
-		return Pos;
-	}
+	void BeginPlay() override;
+	void Tick() override;
 
 private:
-	FIntPoint Pos;
-	ConsoleImage PlayerImage;
-
-	ConsoleImage* BackBuffer;
-
+	// 또다른 리스트를 가지게 한다.
+	ActorVector BulletVector;
 };
+

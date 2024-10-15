@@ -17,8 +17,6 @@ void UFightUnit::DamageLogic(class UFightUnit& _Unit)
 	PrevDamage = _Unit.GetDamage();
 	int CurHp = Def->GetHp() - PrevDamage;
 	Def->SetHp(CurHp);
-
-	AttUnit = &_Unit;
 }
 
 bool UFightUnit::IsDeath() const

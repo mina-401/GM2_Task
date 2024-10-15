@@ -1,11 +1,6 @@
 #include "Actor.h"
 #include <iostream>
 
-void AActor::BeginPlay()
-{
-	UFightUnit::Init(this);
-}
-
 void AActor::StatusRender()
 {
 	TopLine();
@@ -16,6 +11,10 @@ void AActor::StatusRender()
 	BotLine();
 }
 
+void AActor::BeginPlay()
+{
+	UFightUnit::Init(this);
+}
 
 void AActor::StatusTextRender()
 {

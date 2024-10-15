@@ -7,7 +7,7 @@ void AMonster::BeginPlay()
 {
 	// ¹»
 	AActor::BeginPlay();
-
+	
 }
 
 void AMonster::SetRandomGold(int _Min, int _Max)
