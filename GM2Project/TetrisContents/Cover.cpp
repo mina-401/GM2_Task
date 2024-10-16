@@ -5,8 +5,13 @@ void Cover::BeginPlay()
 {
 	Super::BeginPlay();
 
-	Renderer* Render = CreateDefaultSubObject();
+	Render = CreateDefaultSubObject();
 	Render->RenderImage.Create({ 3, 5 }, '#');
 
-	//Render->RenderImage.SetPixel({ 0, 4 }, '@');
+	//
+}
+
+void Cover::SetPixel(class FIntPoint pos)
+{
+	Render->RenderImage.SetPixel({ pos.X, pos.Y }, '@');
 }

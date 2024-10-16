@@ -11,7 +11,10 @@ public:
 	//	return CoverPtr;
 	//}
 
+	class Cover* CoverPtr;
+
 private:
 	//static class Cover* CoverPtr;
+	class Renderer* Render;
 };
 

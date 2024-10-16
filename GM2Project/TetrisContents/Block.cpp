@@ -1,13 +1,14 @@
 #include "Block.h"
 #include <EngineCore/Renderer.h>
 #include <conio.h>
+#include "Cover.h"
 
 //Cover* Cover::CoverPtr = nullptr;
 void Block::BeginPlay()
 {
 	Super::BeginPlay();
 
-	Renderer* Render = CreateDefaultSubObject();
+	Render = CreateDefaultSubObject();
 	Render->RenderImage.Create({ 1, 1 }, '@');
 	//Cover* cover = Cover::GetCoverPtr();
 
@@ -45,6 +46,23 @@ void Block::Tick()
 		}
 
 	}
+
+	//화면보다 아래로 내려감
+	if (GetActorLocation().Y >= 4)
+	{
+		CoverPtr->SetPixel(GetActorLocation());
+		// CoverPtr->Render->RenderImage.GetPixel(@)
+
+		SetActorLocation({ 0,0 });
+
+	}
+	//아래에 @이가 있다.
+
+	//if(CoverPtr->Render->RenderImage.Get
+
+	// CoverPtr->Render->RenderImage.GetPixel(@)
+	// 2가지
+
 	//바닥에 닿으면 cover의 pixel위치에 @를 그린다.
 
 
