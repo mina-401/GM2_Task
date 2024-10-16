@@ -47,7 +47,7 @@ void Block::Tick()
 
 	}
 
-	FIntPoint pos = CoverPtr->Render->RenderImage.GetPixel('@');
+	
 	//화면보다 아래로 내려감
 	if (GetActorLocation().Y >= 4)
 	{
@@ -57,6 +57,7 @@ void Block::Tick()
 		SetActorLocation({ 0,0 });
 
 	}
+	FIntPoint pos = CoverPtr->Render->RenderImage.GetPixel({ GetActorLocation().X ,GetActorLocation().Y+1 }, '@');
 	//아래에 @이가 있다.
 	if (GetActorLocation().Y == pos.Y-1 && GetActorLocation().X==pos.X )
 	{

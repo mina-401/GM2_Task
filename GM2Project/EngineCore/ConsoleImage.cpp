@@ -13,7 +13,7 @@ void ConsoleImage::Release()
 void ConsoleImage::Create(int _X, int _Y, char _BaseChar)
 {
 	// 리스트 이니셜라이저
-	ImageSize = { _X, _Y };
+	ImageSize = {_X, _Y};
 
 	// 얼마
 	// Arr = new char* [_Y];
@@ -71,20 +71,4 @@ void ConsoleImage::Copy(FIntPoint _Offset, ConsoleImage& _Image)
 			SetPixel(SetPos, X);
 		}
 	}
-}
-
-FIntPoint ConsoleImage::GetPixel(char _Char)
-{
-	
-	for (int y = 0; y < ImageSize.Y; ++y)
-	{
-		for (int x = 0; x < ImageSize.X; ++x)
-		{
-			if (Pixels[y][x] == _Char)
-			{
-				return { x, y }; 
-			}
-		}
-	}
-	return { -1,-1 };
 }

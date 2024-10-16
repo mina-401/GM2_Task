@@ -1,4 +1,7 @@
 #pragma once
+// 부담없이 하셔도 됩니다.
+// 나보다 한단계 상위의 프로젝트의 헤더를 사용하는것은.
+#include <EngineBase/EngineMath.h>
 #include <vector>
 
 class ConsoleEngine
@@ -18,6 +21,11 @@ public:
 		return Window;
 	}
 
+	class FIntPoint GetWindowSize()
+	{
+		return {0,0};
+	}
+
 	template<typename ActorType>
 	ActorType* SpawnActor()
 	{
@@ -34,11 +42,6 @@ public:
 		// static 변수를 기반으로 사용하면 된다.
 		MainEngine->EngineActive = false;
 	}
-
-	//std::vector<class AActor*> GetAllAcotrVector()
-	//{
-	//	return AllActorVector;
-	//}
 
 private:
 	// 생성자를 막았어.

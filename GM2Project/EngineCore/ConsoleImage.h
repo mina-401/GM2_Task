@@ -1,5 +1,5 @@
 #pragma once
-#include <BaseSystem/EngineMath.h>
+#include <EngineBase/EngineMath.h>
 #include <vector>
 
 // 선생님에게 이미지란 
@@ -56,8 +56,6 @@ public:
 	{
 		return Pixels[_Y][_X];
 	}
-
-	FIntPoint GetPixel(char _Char);
 
 	inline FIntPoint GetImageSize() const
 	{
