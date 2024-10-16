@@ -35,6 +35,11 @@ public:
 		MainEngine->EngineActive = false;
 	}
 
+	//std::vector<class AActor*> GetAllAcotrVector()
+	//{
+	//	return AllActorVector;
+	//}
+
 private:
 	// 생성자를 막았어.
 	ConsoleEngine();

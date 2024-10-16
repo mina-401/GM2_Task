@@ -57,6 +57,8 @@ public:
 		return Pixels[_Y][_X];
 	}
 
+	FIntPoint GetPixel(char _Char);
+
 	inline FIntPoint GetImageSize() const
 	{
 		return ImageSize;

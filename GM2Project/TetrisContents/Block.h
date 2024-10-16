@@ -11,6 +11,8 @@ public:
 	//	return CoverPtr;
 	//}
 
+	//std::vector<class AActor*> CoverPtr;
+
 	class Cover* CoverPtr;
 
 private:

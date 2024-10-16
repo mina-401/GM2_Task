@@ -12,6 +12,8 @@ void TetrisInit::UserBeginPlay(ConsoleEngine* _MainEngine)
 	_MainEngine->GetWindow()->SetScreenSize({ 3, 5 });
 	Cover* CoverPtr= _MainEngine->SpawnActor<Cover>();
 	Block* BlockPtr= _MainEngine->SpawnActor<Block>();
+
+
 	BlockPtr->CoverPtr = CoverPtr;
 
 

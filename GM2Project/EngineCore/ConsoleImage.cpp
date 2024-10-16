@@ -72,3 +72,19 @@ void ConsoleImage::Copy(FIntPoint _Offset, ConsoleImage& _Image)
 		}
 	}
 }
+
+FIntPoint ConsoleImage::GetPixel(char _Char)
+{
+	
+	for (int y = 0; y < ImageSize.Y; ++y)
+	{
+		for (int x = 0; x < ImageSize.X; ++x)
+		{
+			if (Pixels[y][x] == _Char)
+			{
+				return { x, y }; 
+			}
+		}
+	}
+	return { -1,-1 };
+}
