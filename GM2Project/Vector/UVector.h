@@ -16,7 +16,7 @@ class UVector
 public:
 	~UVector()
 	{
-		if (nullptr != Datas)
+		if (nul	lptr != Datas)
 		{
 			delete[] Datas;
 			Datas = nullptr;

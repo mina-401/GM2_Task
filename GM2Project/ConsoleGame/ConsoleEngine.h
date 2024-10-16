@@ -1,30 +1,21 @@
 #pragma once
-#include "ConsoleWindow.h"
-#include "Player.h"
-#include "Bullet.h"
-#include "Monster.h"
-#include "ActorVector.h"
+#include <vector>
 
 class ConsoleEngine
 {
-	// void Update(); // 움직인다.
-	// void Move(); // 움직인다.
 public:
-	static void Start();
+	// static void Start(class UserInit* _Init);
 
-	static FIntPoint GetWindowSize()
-	{
-		return WindowSize;
-	}
-
-	static UConsoleWindow& GetWindow()
-	{
-		return Window;
-	}
+	static void Start(void(*Ptr)(ConsoleEngine* _Engine));
 
 	static ConsoleEngine& GetEngine()
 	{
 		return *MainEngine;
+	}
+
+	class UConsoleWindow* GetWindow()
+	{
+		return Window;
 	}
 
 	template<typename ActorType>
@@ -37,56 +28,38 @@ public:
 		return NewActor;
 	}
 
-	//AActor* SpawnBullet()
-	//{
-	//	Bullet* NewActor = new Bullet();
-
-	//	AllActorVector.push_back(NewActor);
-	//	return NewActor;
-	//}
-
-	//AActor* SpawnMonster()
-	//{
-	//	Monster* NewActor = new Monster();
-
-	//	AllActorVector.push_back(NewActor);
-	//	return NewActor;
-	//}
-
-	// 이게 예제에서 나온 싱글톤이다.
-	// 이놈의 싱글톤은 면접에서도 많이 물어봐서
-	// 싱글톤의 핵심 => 프로그램에서 단 1개의 객체만 만든다.
-	//                 어떠한 중점도 없다.
-	//                 프로그램내에서 어떠한 클래스의 어떠한 
-	//                 객체를 딱 1개만 만들게 제한하는 방법.
-	
-	//static ConsoleEngine* Inst;
-	//ConsoleEngine* GetInst()
-	//{
-	//	if (nullptr == Inst)
-	//	{
-	//		Inst = new ConsoleEngine();
-	//	}
-	//	return Inst;
-	//}
+	static void ApplicationEnd()
+	{
+		// 일반 맴버변수를 static 함수 내부에서 사용하고 싶다면
+		// static 변수를 기반으로 사용하면 된다.
+		MainEngine->EngineActive = false;
+	}
 
 private:
 	// 생성자를 막았어.
 	ConsoleEngine();
 
-	// 선언만 있고 실체는 존재하지 않기 때문에
-	// 외부기호 오류가 뜬다.
-	// 프로그램이 종료될때까지 파괴되지 않습니다.
-	static FIntPoint WindowSize;
-	static UConsoleWindow Window;
-
 	static ConsoleEngine* MainEngine;
 
-	// 화면에 존재할 모든 Actor을 담아서 관리한 단1개의 자료구조만 존재한다.
-	ActorVector AllActorVector;
+	class UConsoleWindow* Window;
+	bool EngineActive = true;
+
+	// 전방선언도 안해줘도 된다.
+	std::vector<class AActor*> AllActorVector;
 
 	void BeginPlay(); // 움직인다.
 	void Tick(); // 움직인다.
 	void Render(); // 그린다.
+
+	void End();
+};
+
+// 인터페이스를 제공하용도 유저가 공부해야 한다.
+class UserInit
+{
+public:
+	// 경험이 있는 사람은 이걸 보고 깨닫습니다.
+	// 
+	virtual void UserBeginPlay(ConsoleEngine* _MainEngine) = 0;
 };
 

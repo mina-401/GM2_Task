@@ -2,13 +2,15 @@
 #include <EngineCore/Renderer.h>
 #include <conio.h>
 
-
+//Cover* Cover::CoverPtr = nullptr;
 void Block::BeginPlay()
 {
 	Super::BeginPlay();
 
 	Renderer* Render = CreateDefaultSubObject();
 	Render->RenderImage.Create({ 1, 1 }, '@');
+	//Cover* cover = Cover::GetCoverPtr();
+
 }
 
 void Block::Tick()
@@ -43,6 +45,7 @@ void Block::Tick()
 		}
 
 	}
+	//바닥에 닿으면 cover의 pixel위치에 @를 그린다.
 
 
 }

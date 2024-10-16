@@ -132,8 +132,14 @@
     <ClCompile Include="App.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EngineBase\EngineBase.vcxproj">
+      <Project>{108805a3-298c-4b98-915c-872e2f170a85}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\EngineCore\EngineCore.vcxproj">
       <Project>{f83ba35a-295f-4844-add0-06fda7cba5f0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TetrisContents\TetrisContents.vcxproj">
+      <Project>{b4fdbbfa-6d0e-43d6-92fc-26d534faa3c3}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
