@@ -32,7 +32,7 @@ public:
 
 	void Create(FIntPoint _Size, char _BaseChar)
 	{
-		Create(_Size.X, _Size.Y, _BaseChar);
+		Create(_Size.X, _Size.Y, _BaseChar);   
 	}
 
 	// 이미지를 만든다.

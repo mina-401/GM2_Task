@@ -6,17 +6,13 @@ class Block : public AActor
 public:
 	void BeginPlay() override;
 	void Tick() override;
-	//static Cover* GetCoverPtr() 
-	//{
-	//	return CoverPtr;
-	//}
 
-	//std::vector<class AActor*> CoverPtr;
-
-	class Cover* CoverPtr;
+	inline void SetRenderTarget(class RenderTarget* _RenderValue)
+	{
+		RenderValue = _RenderValue;
+	}
 
 private:
-	//static class Cover* CoverPtr;
-	class Renderer* Render;
+	RenderTarget* RenderValue = nullptr;
 };
 

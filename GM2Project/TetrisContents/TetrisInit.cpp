@@ -3,18 +3,15 @@
 #include <EngineCore/ConsoleWindow.h>
 
 #include "Block.h"
-#include "Cover.h"
-
+#include "RenderTarget.h"
 
 void TetrisInit::UserBeginPlay(ConsoleEngine* _MainEngine)
 {
 	// 시작을 합니다.
-	_MainEngine->GetWindow()->SetScreenSize({ 3, 5 });
-	Cover* CoverPtr= _MainEngine->SpawnActor<Cover>();
-	Block* BlockPtr= _MainEngine->SpawnActor<Block>();
+	_MainEngine->GetWindow()->SetScreenSize({3, 5});
 
-
-	BlockPtr->CoverPtr = CoverPtr;
-
+	RenderTarget* RenderValue = _MainEngine->SpawnActor<RenderTarget>();
+	Block* BlockValue = _MainEngine->SpawnActor<Block>();
+	BlockValue->SetRenderTarget(RenderValue);
 
 }

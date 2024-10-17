@@ -2,6 +2,7 @@
 
 // std
 #include <conio.h>
+#include <iostream>
 
 // 엔진 
 #include <EngineBase/EngineMath.h>
@@ -80,9 +81,12 @@ void Head::EatCheck()
 		ListNode* PrevNode = LastNode->Prev;
 
 		FIntPoint CurPos = PrevNode->GetPrevPos();
-
 		LastNode->SetActorLocation(PrevNode->GetPrevPos());
 
+		FIntPoint EmptyPoint = GetEmptyPoint();
+
+		Body* NewBody = ConsoleEngine::GetEngine().SpawnActor<Body>();
+		NewBody->SetActorLocation(EmptyPoint);
 	}
 
 	// body를 하나더 만들어야 한다.,
@@ -96,3 +100,57 @@ void Head::Tick()
 	EatCheck();
 }
 
+FIntPoint Head::GetEmptyPoint()
+{
+	// 변수
+	FIntPoint ScreenSize = ConsoleEngine::GetEngine().GetWindow()->GetScreenSize();
+
+	std::vector<FIntPoint> AllRange;
+	AllRange.reserve(ScreenSize.Y * ScreenSize.X);
+
+	for (int y = 0; y < ScreenSize.Y; y++)
+	{
+		for (int x = 0; x < ScreenSize.X; x++)
+		{
+			AllRange.push_back({ x, y });
+		}
+	}
+
+
+	std::vector<ListNode*> AllNode;
+	ListNode* CurNode = this;
+	while (nullptr != CurNode)
+	{
+		AllNode.push_back(CurNode);
+		CurNode = CurNode->Next;
+	}
+
+	for (int i = 0; i < AllRange.size(); i++)
+	{
+		for (int j = 0; j < AllNode.size(); j++)
+		{
+			if (AllNode[j]->GetActorLocation() == AllRange[i])
+			{
+				AllRange[i].X = AllRange[i].Y = -1;
+			}
+		}
+	}
+
+	// 일단 최대치로 할당
+	std::vector<FIntPoint> VoidPos;
+	VoidPos.reserve(ScreenSize.Y * ScreenSize.X);
+
+	for (int i = 0; i < AllRange.size(); i++)
+	{
+		if (-1 != AllRange[i].X)
+		{
+			VoidPos.push_back(AllRange[i]);
+		}
+	}
+
+	srand(time(nullptr));
+
+	int RandomIndex = rand() % VoidPos.size();
+
+	return VoidPos[RandomIndex];
+}

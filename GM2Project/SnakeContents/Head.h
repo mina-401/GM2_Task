@@ -19,5 +19,8 @@ public:
 
 	void Move();
 	void EatCheck();
+
+
+	FIntPoint GetEmptyPoint();
 };
 

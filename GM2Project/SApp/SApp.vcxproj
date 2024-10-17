@@ -18,26 +18,11 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\EngineCore\EngineCore.vcxproj">
-      <Project>{f83ba35a-295f-4844-add0-06fda7cba5f0}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Block.h" />
-    <ClInclude Include="RenderTarget.h" />
-    <ClInclude Include="TetrisInit.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Block.cpp" />
-    <ClCompile Include="RenderTarget.cpp" />
-    <ClCompile Include="TetrisInit.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{B4FDBBFA-6D0E-43D6-92FC-26D534FAA3C3}</ProjectGuid>
-    <RootNamespace>TetrisContents</RootNamespace>
+    <ProjectGuid>{A31B06B6-8CC5-45AC-A7E7-7FD9180DDDB0}</ProjectGuid>
+    <RootNamespace>SApp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -55,13 +40,13 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -143,6 +128,20 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="SApp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EngineBase\EngineBase.vcxproj">
+      <Project>{47e3aad8-cc6c-46c3-86c8-b7ca1a81da66}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EngineCore\EngineCore.vcxproj">
+      <Project>{f83ba35a-295f-4844-add0-06fda7cba5f0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ShootingContents\ShootingContents.vcxproj">
+      <Project>{a8eec27e-daba-433c-88b8-a27bf6cfc1f6}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

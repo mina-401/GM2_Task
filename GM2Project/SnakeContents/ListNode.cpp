@@ -43,7 +43,7 @@ ListNode* ListNode::GetLastNode()
 		return this;
 	}
 
-	// 내가 LastNode가 아니다.
+	// 내가 LastNode가 아니다.nb  
 	return Next->GetLastNode();
 }
 

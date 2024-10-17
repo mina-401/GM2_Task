@@ -100,42 +100,50 @@ int main()
     // 그리고 그냥 다 그렇게 씁니다.
     // 애초에 삭제를 하면 잘못사용했다 수준으로 생각합니다.
 
-    //{
-    //    std::vector<int> stdvector;
+    {
+        std::vector<int> stdvector;
 
-    //    // [0][1][2][3]
-    //    // [3][0][1][2]
+        // [0][1][2][3]
+        // [3][0][1][2]
 
-    //    // stdvector[20] = 10;
+        // stdvector[20] = 10;
 
-    //    // 누가 이거 안하고 사용하는거 보면 지적할 겁니다.
-    //    stdvector.reserve(100);
-    //    stdvector.reserve(10);
+        // 누가 이거 안하고 사용하는거 보면 지적할 겁니다.
+        stdvector.reserve(100);
+        stdvector.reserve(10);
 
-    //    // 이녀석은 list 만들면서 배울겁니다.
-    //    // stdvector.erase(5);
+        // 이녀석은 list 만들면서 배울겁니다.
+        // stdvector.erase(5);
 
-    //    // vector의 가장 좋은 사용법은 capacity가 최소한으로 변화하게 하는것이다.
-    //    // 한번 변화하고 아예 변하지 않으면 최고 사용법으로 보면 된다.
+        // vector의 가장 좋은 사용법은 capacity가 최소한으로 변화하게 하는것이다.
+        // 한번 변화하고 아예 변하지 않으면 최고 사용법으로 보면 된다.
 
-    //    // stdvector.resize(10);
+        // stdvector.resize(10);
 
-    //    for (int i = 0; i < 10; i++)
-    //    {
-    //        // 0개
-    //        // capacity가 먼저 늘어난다.
-    //        // i가 늘어난 공간에 추가되죠.
-    //        // size도 늘어난다.
-    //        stdvector.push_back(i);
-    //        std::cout << "push : " << stdvector[i] << std::endl;
-    //        std::cout << "capacity : " << stdvector.capacity() << std::endl;
-    //        std::cout << "size     : " << stdvector.size() << std::endl;
-    //    }
+        for (int i = 0; i < 10; i++)
+        {
+            // 0개
+            // capacity가 먼저 늘어난다.
+            // i가 늘어난 공간에 추가되죠.
+            // size도 늘어난다.
+            stdvector.push_back(i);
+            std::cout << "push : " << stdvector[i] << std::endl;
+            std::cout << "capacity : " << stdvector.capacity() << std::endl;
+            std::cout << "size     : " << stdvector.size() << std::endl;
+        }
 
-    //    stdvector.clear();
+        stdvector.clear();
 
-    //    std::cout << "claer after capacity : " << stdvector.capacity() << std::endl;
-    //}
+        // stdvector => reserve(100)
+
+        //                400           400
+        // 데이터를 
+        std::vector<int> stdvector2 = stdvector;
+        // 자료구조를 사용하게 되면서 큰 바이트들을 운용하기 시작한다.
+        // 복사에 
+
+        std::cout << "claer after capacity : " << stdvector.capacity() << std::endl;
+    }
 
 
     {
@@ -151,12 +159,7 @@ int main()
             std::cout << "size     : " << stdvector.size() << std::endl;
         }
 
-        stdvector.clear();
-        
-    
-        std::cout << "clear after capacity : " << stdvector.capacity() << std::endl;
-        std::cout << "size     : " << stdvector.size() << std::endl;
-
+        // stdvector.cl
     }
 
 }
