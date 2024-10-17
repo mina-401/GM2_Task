@@ -12,25 +12,27 @@ int main()
     // 메모리 : 노드형
     // 종류 : 시퀀스 자료구조
 
-    //{
-    //    // Node 메모리 구조이기 때문에
-    //    // [9] [0] [1] [2] [3] 
-    //    std::list<int> Newint;
-    //    Newint.push_back(0);
-    //    Newint.push_back(1);
-    //    Newint.push_back(2);
-    //    Newint.push_back(3);
-    //    Newint.push_front(9);
+    {
+        // Node 메모리 구조이기 때문에
+        // [9] [0] [1] [2] [3] 
+        //std::list<int> Newint;
+        //Newint.push_back(0);
+        //Newint.push_back(1);
+        //Newint.push_back(2);
+        //Newint.push_back(3);
+        //Newint.push_front(9);
 
-    //    std::list<int>::iterator StartIter = Newint.begin();
-    //    std::list<int>::iterator EndIter = Newint.end();
-    //    for (; StartIter != EndIter; ++StartIter)
-    //    {
-    //        int& Value = *StartIter;
-    //        std::cout << Value << std::endl;
+        //std::list<int>::iterator TestIter = std::list<int>::iterator();
 
-    //    }
-    //}
+        //std::list<int>::iterator StartIter = Newint.begin();
+        //std::list<int>::iterator EndIter = Newint.end();
+        //for (; StartIter != EndIter; ++StartIter)
+        //{
+        //    int& Value = *StartIter;
+        //    std::cout << Value << std::endl;
+
+        //}
+    }
 
     {
         // Node 메모리 구조이기 때문에
@@ -46,15 +48,28 @@ int main()
         Newint.push_back(3);
         Newint.push_front(9);
 
+        // Newint[5];
+
         int a = 0;
 
-        //UList::iterator StartIter = Newint.begin();
-        //UList::iterator EndIter = Newint.end();
-        //for (; StartIter != EndIter; ++StartIter)
-        //{
-        //    int& Value = *StartIter;
-        //    std::cout << Value << std::endl;
+        UList::iterator TestIter;
 
-        //}
+       // Newint.erase(TestIter);
+
+        UList::iterator BeginIter = Newint.begin();
+        UList::iterator EndIter = Newint.end();
+        for (; BeginIter != EndIter; ++BeginIter)
+        {
+            //int* Ptr;
+            //*Ptr;
+
+            // BeginIter + BeginIter;
+
+            BeginIter.operator*();
+            // int& Value = BeginIter.operator*();
+            // int& Value = BeginIter.GetValue();
+            int& Value = *BeginIter;
+            std::cout << Value << std::endl;
+        }
     }
 }
