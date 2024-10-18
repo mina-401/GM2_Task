@@ -103,6 +103,10 @@ int main()
     {
         std::vector<int> stdvector;
 
+        // 인터페이스 사용법이 다 똑같은 방식으로 사용할수 있게 만들어 놨다.
+        // 대표 자료구조들은 전부다 iterator가 있습니다.
+        // std::vector<int>::iterator stdvector;
+
         // [0][1][2][3]
         // [3][0][1][2]
 

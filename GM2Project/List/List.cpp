@@ -15,22 +15,32 @@ int main()
     {
         // Node 메모리 구조이기 때문에
         // [9] [0] [1] [2] [3] 
-        //std::list<int> Newint;
-        //Newint.push_back(0);
-        //Newint.push_back(1);
-        //Newint.push_back(2);
-        //Newint.push_back(3);
-        //Newint.push_front(9);
+        std::list<int> Newint;
+        Newint.push_front(9);
+        Newint.push_back(0);
+        Newint.push_back(1);
+        Newint.push_back(2);
+        Newint.push_back(3);
 
-        //std::list<int>::iterator TestIter = std::list<int>::iterator();
 
-        //std::list<int>::iterator StartIter = Newint.begin();
-        //std::list<int>::iterator EndIter = Newint.end();
+        // 내부에서 for문 돌면서
+        // 리스트는 랜덤인덱스 
+        // Newint.remove(3);
+
+        // 추후에 하겠습니다.
+        // Newint.remove_if(3);
+
+        std::list<int>::iterator TestIter = Newint.end();
+
+        // 받아줘야 합니다.
+        // Newint.erase(TestIter);
+
+        std::list<int>::iterator StartIter = Newint.begin();
+        std::list<int>::iterator EndIter = Newint.end();
         //for (; StartIter != EndIter; ++StartIter)
         //{
         //    int& Value = *StartIter;
         //    std::cout << Value << std::endl;
-
         //}
     }
 
@@ -52,22 +62,15 @@ int main()
 
         int a = 0;
 
-        UList::iterator TestIter;
+        UList::iterator TestIter = Newint.begin();
+        ++TestIter;
+        TestIter = Newint.erase(TestIter);
 
-       // Newint.erase(TestIter);
 
         UList::iterator BeginIter = Newint.begin();
         UList::iterator EndIter = Newint.end();
         for (; BeginIter != EndIter; ++BeginIter)
         {
-            //int* Ptr;
-            //*Ptr;
-
-            // BeginIter + BeginIter;
-
-            BeginIter.operator*();
-            // int& Value = BeginIter.operator*();
-            // int& Value = BeginIter.GetValue();
             int& Value = *BeginIter;
             std::cout << Value << std::endl;
         }

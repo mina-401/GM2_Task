@@ -1,4 +1,5 @@
 #pragma once
+#include <assert.h>
 
 
 typedef int DataType;
@@ -18,6 +19,16 @@ public:
         UListNode* Prev = nullptr;
         UListNode* Next = nullptr;
         DataType Data;
+
+    public:
+        void Release()
+        {
+            if (nullptr != Next)
+            {
+                Next->Release();
+            }
+            delete this;
+        }
     };
 
 public:
@@ -82,17 +93,54 @@ public:
 
     ~UList()
     {
-        while (StartNode != EndNode)
-        {
-            UListNode* TempCurNode = StartNode;
-            UListNode* TempNextNode = StartNode->Next;
-            StartNode = TempNextNode;
+        StartNode->Release();
 
-            delete TempCurNode;
+        // ReDelete(StartNode);
 
-        }
-        delete EndNode;
+        //clear();
+
+        //if (nullptr != StartNode)
+        //{
+        //    delete StartNode;
+        //    StartNode = nullptr;
+        //}
+
+        //if (nullptr != StartNode)
+        //{
+        //    delete EndNode;
+        //    EndNode = nullptr;
+        //}
     }
+
+    // 이녀석은 
+    void clear()
+    {
+        // 그러네
+        UListNode* CurNode = StartNode->Next;
+        while (EndNode != CurNode)
+        {
+            UListNode* NextNode = CurNode->Next;
+
+            delete CurNode;
+            CurNode = nullptr;
+
+            CurNode = NextNode;
+        }
+    }
+
+    void ReDelete(UListNode* _Node)
+    {
+        if (nullptr == _Node->Next)
+        {
+            delete _Node;
+            return;
+        }
+
+        ReDelete(_Node->Next);
+        delete _Node;
+    }
+
+
 
     // 자료구조 3대장
     // => List Vector Map
@@ -127,7 +175,40 @@ public:
         EndNode->Prev = ListNode;
     }
 
-    iterator begin()
+    iterator erase(iterator& _Data)
+    {
+        UListNode* CurNode = _Data.CurNode;
+        if (CurNode == nullptr)
+        {
+            assert(false);
+            return iterator();
+        }
+
+        if (CurNode == StartNode)
+        {
+            assert(false);
+            return iterator();
+        }
+
+        // C++
+        if (CurNode == EndNode)
+        {
+            assert(false);
+            return iterator();
+        }
+
+        UListNode* ReturnNode = CurNode->Next;
+
+        CurNode->Prev->Next = CurNode->Next;
+        CurNode->Next->Prev = CurNode->Prev;
+
+        delete CurNode;
+        CurNode = nullptr;
+
+        return iterator(ReturnNode);
+    }
+
+    iterator begin() 
     {
         return iterator(StartNode->Next);
     }
